@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content%}
+    <h1>{{username}}'s favorite exoplanets</h1>
+    {% for planet in planets %}
+    <a href="/planets/{{ planet.id }}">
+        <p>Name: {{ planet.name }}</p>
+    </a>
+    {% endfor %}
+{% endblock %}

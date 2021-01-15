@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content%}
+    <a href="/planets/create">Add a New Planet</a>
+    <hr />
+    {% for planet in planets %}
+        <a href="/planets/{{ planet.id }}">
+            <p>Name: {{ planet.name }}</p>
+        </a>
+        {% if planet.distance < 1 %}
+            <p>Parent Star: Sun</p>
+        {% else %}
+            <p>Parent Star: {{ planet.parent_star }}</p>
+        {% endif %}
+        <hr />
+    {% endfor %}
+{% endblock %}

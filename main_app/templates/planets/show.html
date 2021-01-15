@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+{% block content%}
+<div class="card-body">
+    <h2 class="card-title">Name: {{ planet.name }}</h2>
+    <p>Type: {{ planet.type }}</p>
+    <p>Description: {{ planet.description }}</p>
+    <p>Mass: {{ planet.mass }}</p>
+    {% if planet.dist < 1 %}
+    <!-- add math to convert ly to AU -->
+        <p>Distance: {{ planet.dist }} AU from the sun</p>
+    {% else %}
+        <p>Distance: {{ planet.dist}} ly from earth</p>
+    {% endif %}
+    <a class="btn btn-primary" href="{% url 'planets_update' planet.id %}">Update Details</a> |
+    <a class="btn btn-danger" href="{% url 'planets_delete' planet.id %}">Delete planet</a>
+</div>
+{% endblock %}
